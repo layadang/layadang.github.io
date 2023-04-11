@@ -39,6 +39,34 @@ h2 {
   font-weight: lighter;
 }
 
+.maincontent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+.maincontent img {
+  width: 700px;
+  height: auto;
+}
+
+.maincontent .block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 50px;
+  
+}
+
+.maincontent .block p {
+  margin-bottom: 1px;
+}
+
 /* about page styles: */
 
 .aboutmain {
