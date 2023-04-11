@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="../../index.css">
+  <link rel="stylesheet" type="text/css" href="../content.css">
+  <link rel="icon" href="../../images/frog.png">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
+
+  <title>CO2 Emissions and Farming Land Use in United States (CLASS PROJECT)</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="/">
+      <h1>
+        &#10032 <b class="laya" style="word-spacing: -0.2em;">laya </b>
+        <i class="likes">likes </i>
+        <u class="graphs">graphs</u>! &#9787
+      </h1>
+    </a>
+    <h2>
+      <a href="/" class="headerlinks">home</a> |
+      <a href=../../about.html class="headerlinks">about</a> |
+      <a href=../../contact.html class="headerlinks">contact</a> |
+      <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
+    </h2>
+  </div>
+
+  <div class="backbutton">
+    <a href="/"> &lt; back</a>
+  </div>
+
+  <h1 class="pagetitle">CO2 Emissions and Farming Land Use in United States (CLASS PROJECT)</h1>
+  <h3 style="text-align: center; margin: 0 0; font-weight: lighter;"> Final graph results:</h3>
+  <div class="showall">
+    <img src="../graphs/co2cropland-scatter.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/totalco2-bar.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/averageco2-bar.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/co2overtime-line.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/averageco2-area.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/cropland-map.gif" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/co2-map.gif" onclick="window.open(this.src, '_blank');">
+  </div>
+  <div class="main">
+    <h3> The data sets I am using for this study comes from public access database by the
+         <a href="https://www.eia.gov/environment/emissions/state/" target="_blank"> U.S. Energy 
+        Information Administration </a> and the
+         <a href="https://www.ers.usda.gov/data-products/major-land-uses/" target="_blank">U.S. Department of Agriculture</a>. 
+        In particular, I used data on emissions by state (from 1970 to 2020), total cropland by 
+        state (from 1945 to 2012), and total land area by state (from 1945 to 2012.) <br> <br>
+        Although the imported data sets were already clean, the time range is different 
+        for each data set. I focused only on the range where we have all the necessary information: 
+        5 year intervals between 1945 to 2012. Further, I narrow the data on only the Contiguous United States 
+        (so excluding Alaska, Hawaii, and U.S. Territories)
+    </h3>
+
+    <pre><code class="language-r">
+library(tidyverse)
+library(readxl)
+library(sf)
+library(dplyr)
+# if you do not have USAboundaries installed:
+# install.packages("remotes")
+# library(remotes)
+# remotes::install_github("ropensci/USAboundaries")
+
+co2_emissions_state <- read_excel("data/carbon_emissions_by_state.xlsx", skip=4) %>%
+    head(-2) %>% filter(!(State %in% c("Alaska", "Hawaii", "District of Columbia")))
+      
+cropland_state_regions <- read_excel("data/cropland_by_state.xls", skip=2, na="-") %>% 
+    na.omit() %>% 
+    rename("RegionsAndStates" = "Regions and States", "2012" = "2012 5/")
+      
+land_area_state_regions <- read_excel("data/total_land_by_state.xls", skip=2, na="-") %>% 
+    na.omit() %>% 
+    rename("RegionsAndStates" = "Regions and States")
+
+us_states_cont <- USAboundaries::us_states() %>% 
+    filter(!(name %in% c("Alaska", "Hawaii", "Puerto Rico"))) %>% 
+    st_transform(2163)
+    </code></pre>
+
+    <h3> To calculate values in term of total area by state, I first needed to pivot each data set, 
+        so that instead of a column for every year, the data is condensed to one column "Year":
+    </h3>
+  
+    <pre><code class="language-r">
+cropland_pivoted <- cropland_state_regions %>% 
+    pivot_longer(cols = -RegionsAndStates, names_to = "Year", values_to = "Cropland_Area")
+
+land_area_pivoted <- land_area_state_regions %>% 
+    pivot_longer(cols = -RegionsAndStates, names_to = "Year", values_to = "Total_Land_Area")
+
+co2_emissions_pivoted <- co2_emissions_state %>% 
+    pivot_longer(cols = -State, names_to = "Year", values_to = "Total_Emissions")
+    </code></pre>
+
+    <div class="codeimages">
+        <div class="captionedcode">
+          <p> I use ggplot and geom_sf() to make the map, visualized <br> 
+            one year at a time. It's important to also keep the legend <br>consistent (i.e. same breaks): </p>
+          <pre><code class="language-r">
+ggplot(co2_emissions_state %>% filter(Year==1974)) + 
+  geom_sf(aes(fill=percent_co2)) +
+  scale_fill_continuous(limits=c(0,3), breaks=c(1, 2), 
+                        low = "lightblue", high = "red") +
+  labs(title="CO2 Emissions Per State Area in 1974",
+       fill="CO2 emissions per land \n(bmt/thousand acres)")
+            </code></pre>
+        </div>
+        <img src="../graphs/co2-map.gif">
+    </div>
+
+    <h3> However, spatial analysis is not an effective approach to understanding change over time, 
+        since we could only focus on one time period per map. To further our analysis, we first 
+        added a binary variable that categorize each state as whether or not it is farm-orientated. 
+        This is calculated by states that are above the upper quartile (top 25%) in percent cropland area. <br> <br>
+
+        With this new binary variable, we can visualize how these two types of states change in 
+        their CO2 emissions over time. In the line graph below, we can see how emissions per total 
+        land area changes over 38 years, between farming and non-farming states:
+    </h3>
+
+    <div class="codeimages">
+        <div class="captionedcode">
+          <p> With the calculations before, and a new binary var, use geom_line(): </p>
+          <pre><code class="language-r">
+ggplot(co2_farm_year %>% drop_na()) + geom_line(aes(x=Year, y=percent_emissions, 
+                                      group=factor(rounded_farm), 
+                                      color=factor(rounded_farm))) +
+  labs(title="Emissions per Total Land Area between Farming and Non-Farming States",
+      color="Farming or Not",
+      y="Emissions per Total Land Area") +
+  scale_color_manual(values=c("tan", "tan4"), 
+                       labels = c("Non-Farming State", "Farming State")) 
+            </code></pre>
+        </div>
+        <img src="../graphs/co2overtime-line.png">
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  </body>

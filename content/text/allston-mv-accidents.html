@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="../../index.css">
+  <link rel="stylesheet" type="text/css" href="../content.css">
+  <link rel="icon" href="../../images/frog.png">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
+
+  <title>Mapping Allston Motor Vechile Accidents</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="/">
+      <h1>
+        &#10032 <b class="laya" style="word-spacing: -0.2em;">laya </b>
+        <i class="likes">likes </i>
+        <u class="graphs">graphs</u>! &#9787
+      </h1>
+    </a>
+    <h2>
+      <a href="/" class="headerlinks">home</a> |
+      <a href=../../about.html class="headerlinks">about</a> |
+      <a href=../../contact.html class="headerlinks">contact</a> |
+      <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
+    </h2>
+  </div>
+
+  <div class="backbutton">
+    <a href="/"> &lt; back</a>
+  </div>
+
+  <h1 class="pagetitle">Mapping Allston Motor Vechicle Accidents</h1>
+
+  <div class="showall">
+    <img src="../graphs/allston-map-2.webp" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/allston-mv-accidents.webp" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/tmap-allston-map.webp" onclick="window.open(this.src, '_blank');">
+  </div>
+
+  <div class="main">
+    <h3> These graphs were all made as part of the MA 415 course at Boston University!
+      Data is taken from
+      <a href="https://data.boston.gov/" target="_blank"> Analyze Boston</a>
+      (City of Boston's open data hub) and updated up to 2022.
+      Below is information on the code (all written in R) and the thought process. <br>
+    </h3>
+
+    <pre><code class="language-r">
+# packages used for this study (tmap and oldmaptools needs to be pre-installed)
+library(tidyverse)
+library(ggplot2)
+library(sf)
+library(tmap)
+library(oldmaptools)
+
+# constant values for universal coordinate system
+epsg_wgs84 &lt;- 4326
+epsg_us &lt;- 2163
+epsg_ma &lt;- 6492 
+
+# filter only allston data from boston subdistrict data, set to standard crs:
+allston_subdistricts &lt;- st_read("data/Boston_Zoning_Subdistricts") %>%
+        filter(DISTRICT == "Allston/Brighton Neighborhood") %>% 
+        st_transform(epsg_ma)
+
+# get data on accidents, transform to standard crs + sf, and filter only allston data:
+accidents <- read_csv("data/accidents-boston-2022.csv") %>%
+  st_as_sf(coords = c("Long", "Lat")) %>%
+  st_set_crs(epsg_wgs84) %>% st_transform(epsg_ma) %>%
+  filter(lengths(st_intersects(., allston_subdistricts)) > 0)
+
+# join the two datasets:
+allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJECTID)
+      </code></pre>
+
+
+    <div class="codeimages">
+      <div class="captionedcode">
+        <p> Starting with my dependable ggplot() function:</p>
+        <pre><code class="language-r">
+  ggplot() + 
+    geom_sf(aes(fill = n), data = allston_accidents) + 
+    geom_sf(color = "red", alpha = .3, data = accidents)
+      </code></pre>
+      </div>
+      <img src="../graphs/allston-map-2.webp">
+    </div>
+
+    <div class="codeimages">
+      <div class="captionedcode">
+        <p> Experimenting with the tmap library: </p>
+        <pre><code class="language-r">
+  tm_shape(allston_accidents) + 
+    tm_polygons(col="n", title="MV Accidents") +
+  tm_shape(accidents) + 
+    tm_symbols(col="blue", border.col="blue", size=0.1)
+      </code></pre>
+      </div>
+      <img src="../graphs/allston-mv-accidents.webp">
+    </div>
+
+    <div class="codeimages">
+      <div class="captionedcode">
+        <p> Using oldmaptools to overlay on satellite image: </p>
+        <pre><code class="language-r">
+  allston_osm <- tmaptools::read_osm(allston_subdistricts)
+  accidents_dens <- smooth_map(accidents, bandwidth = .5, 
+    cover = allston_subdistricts)
+
+
+  tm_shape(allston_osm, projection = epsg_ma, unit = "mi") + 
+    tm_rgb(alpha = .8) +
+  tm_shape(allston_accidents) +
+    tm_polygons(col = "n", alpha = .7, palette = "-RdYlBu", 
+    title = "MV accidents") +
+  tm_shape(accidents) + 
+    tm_symbols(col = "red", size = .1, alpha = .5) +
+    tm_compass(position = c("right", "top")) +
+    tm_scale_bar(position = c("right", "bottom"))
+        
+      </code></pre>
+      </div>
+      <img src="../graphs/tmap-allston-map.webp">
+    </div>
+
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+:root {
+    /* --main1: #dee08a ; */
+    --main1: #ffffea ;
+    --main2: #fc9a19;
+    --main3: #FCFCFC;
+    --main4: #c4ffc4;
+    /* --main5: #43783D; */
+    --main5: #35742e;
+    --main6: #22053D;
+  }
+  
+  ::-moz-selection { 
+    color: var(--main6);
+    background: var(--main4);
+  }
+  
+  ::selection {
+    color: var(--main6);
+    background: var(--main4);
+  }
+  
+  .project-list::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar on Webkit browsers */
+  }
+  
+  a {
+    color: var(--main6);
+  }
+  
+  html, body {
+    font-family: "Gluten", sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--main3);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    color: var(--main6);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  a, a:active, a:visited, a:focus {
+    text-decoration:none;
+    display: inline-block; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navigation {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* min-width: 250px;          
+    max-width: 300px;  */
+  }
+  .nav-image {
+    position: fixed;
+    z-index: 1;
+    margin-top: 20px;
+  
+    display: flex;
+    justify-content: center;
+    width: 18vw;
+    min-width: 200px;         
+    max-width: 300px;     
+  }
+  .nav-image a{
+    width: 90%;
+    min-width: 200px;   
+  
+  }
+  
+  .nav-image img {
+    border-radius: 50%;
+    width: 90%;
+    min-width: 200px;   
+  }
+  
+  .navbar{
+    position: fixed;
+    background-color: var(--main1);
+    border-right: solid 0.2vw #43783D;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    width: 18vw;
+    min-width: 200px;          
+    height: 100vh;
+    font-size: 2.6vw;
+  }
+  
+  .navigation-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20pt;
+  }
+  
+  .navigation-links a {
+    color: var(--main5);
+  }
+  
+  .navigation-links a:hover {
+    font-style: italic;
+  }
+
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* position: fixed; */
+    /* width: 20%;
+    min-width: 250px;          
+    max-width: 300px;  */
+    width: 70vw;
+    margin-right: 5vw;
+    margin-bottom: 150vh;
+  }
+
+  .main h1{
+    font-size: 50pt;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 0.67em;
+  }
+  
+  .main h2, h3 {
+  font-size: 18pt;
+  font-weight: bold;
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  }
+  
+  .main p {
+    font-size: 14pt;
+    font-weight: 100;
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 300;
+  }
+  
+  .main .color {
+    color: var(--main5);
+  }
+
+  .main img, video {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; 
+  }
+
+  @media (min-width: 850px) {
+    .navbar .navigation-links img{
+      display: none;
+    }
+  }
+  
+  /* For small mobile screens (below 850px) */
+  @media (max-width: 850px) {
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .navigation {
+      height: 15vw;
+      width: 100vw;
+      position: fixed;
+      z-index: 10;
+      top: 0; 
+  
+      background-color: var(--main1);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly ;
+      flex-shrink: 0;
+      gap: 200px;
+      border-bottom: solid 0.2vw #43783D;;
+      /* min-width: 250px;          
+      max-width: 300px;  */
+    }
+    .nav-image {
+      display: none;
+    }
+    .navbar img {
+      display: block;
+      width: 15vw;
+      min-width: auto;
+    }
+  
+    .navbar {
+      flex-direction: row;
+      justify-content: space-evenly ;
+      align-items: center;
+  
+      width: 100%;
+      height: 15vw;
+      border-right: none;
+      border-bottom: solid 0.2vw #43783D;
+  
+      margin-right: 0;
+      padding-right: 0;
+  
+    }
+  
+    .navigation-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly ;
+  
+      gap: 10px;
+      width: 100vw;
+    }
+  
+    .navigation-links a {
+      display: none;
+    }
+
+  .main h1 {
+    font-size: 28pt;
+  }
+
+  .main h2, h3 {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  .main {
+    margin-right: 5vw;
+    margin-left: 5vw;
+    width: 90vw;
+    margin-top: 15vw;
+}
+
+  }

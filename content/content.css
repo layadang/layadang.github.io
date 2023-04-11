@@ -1,0 +1,136 @@
+/* content page styles: */
+
+/* lil navigation */
+.backbutton {
+  margin-top: -10px;
+  margin-left: 10vw;
+  font-size: 10pt;
+  text-decoration: underline;
+}
+
+.backbutton a:hover {
+  font-style: italic;
+}
+
+/* graph preview */
+.pagetitle {
+  text-align: center;
+}
+
+.showall {
+  padding: 1vh;
+  margin: 0 3vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.showall img {
+  margin: 1vw 1vw;
+  height: 400px;
+  max-height: 100%;
+  max-width: 100%;
+
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+}
+
+.showall img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* top text */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.main h3 {
+  text-align: left;
+  font-weight: lighter;
+  margin: 0 10vw 50px;
+}
+
+.main a {
+  text-decoration: underline;
+  color: #1a8513;
+}
+.main a:hover {
+  font-style: italic;
+}
+
+/* code and graph */
+code {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  width: 50vw;
+}
+
+.codeimages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.codeimages img {
+  width: 35vw;
+  max-width: 100%;
+  margin: 1vw 5vw 10vw;
+}
+
+.codeimages code {
+  width: 35vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10vw;
+}
+
+.codeimages p {
+  text-align: center;
+  margin: 0 2vw 0;
+}
+
+.captionedcode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .codeimages {
+    flex-direction: column;
+  }
+
+  .codeimages code {
+    width: 80vw;
+  }
+
+  code {
+    width: 80vw;
+  }
+
+  .codeimages img {
+    width: 80vw;
+    height: auto;
+  }
+
+  .showall img {
+    height: auto;
+    overflow-x: scroll;
+  }
+}
+
+/* for interactive map */
+
+.main iframe {
+  width: 90vw;
+  height: 750px;
+}

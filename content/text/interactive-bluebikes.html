@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="../../index.css">
+  <link rel="stylesheet" type="text/css" href="../content.css">
+  <link rel="icon" href="../../images/frog.png">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
+  <title>Interactive Map of BlueBike Stations in Boston Subdistricts</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="/">
+      <h1>
+        &#10032 <b class="laya" style="word-spacing: -0.2em;">laya </b>
+        <i class="likes">likes </i>
+        <u class="graphs">graphs</u>! &#9787
+      </h1>
+    </a>
+    <h2>
+      <a href="/" class="headerlinks">home</a> |
+      <a href=../../about.html class="headerlinks">about</a> |
+      <a href=../../contact.html class="headerlinks">contact</a> |
+      <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
+    </h2>
+  </div>
+
+  <div class="backbutton">
+    <a href="/"> &lt; back</a>
+  </div>
+
+  <h1 class="pagetitle">Interactive Map of BlueBike Stations in Boston Subdistricts</h1>
+
+
+  <div class="main">
+    <h3> Data is from my favorite website, <a href="https://data.boston.gov/" target="_blank"> Analyze Boston</a> (City of Boston's open data hub). 
+      Created with the tmap library on "view" mode, which I later learned is just a repackaged version of leaflet, a javascript library. 
+      Exported using htmlwidgets, but edited source code to use CDN for better load time + had issues with hosting on GitHub pages. <br> <br>
+      Thought this was a good start for my first project creating an interactive map + layering data! I think next time I would 
+      either learn leaflet from scratch or use a different language (other than R), since the map is very laggy, uses a crazy amount of RAM, and 
+      just not at all user-friendly (or coder-friendly, for that matter). <br> <br>
+      I still think the final result is cool, though! The colors represent different districts and each blue dot is a BlueBike station (as of 2022).
+      Hover to see the name of each neighborhood. Really neat that the stations are spread down the main road to Hyde Park. 
+
+    </h3>
+    <br> <a href="../graphs/bluebikesboston.html" target="_blank"> View map in full screen! </a>
+    <iframe src="../graphs/bluebikesboston.html" id="map"></iframe>
+  </div>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

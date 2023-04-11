@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="../../index.css">
+  <link rel="stylesheet" type="text/css" href="../content.css">
+  <link rel="icon" href="../../images/frog.png">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
+
+  <title>The nycflights13 Data Set (CRAN Package)</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="/">
+      <h1>
+        &#10032 <b class="laya" style="word-spacing: -0.2em;">laya </b>
+        <i class="likes">likes </i>
+        <u class="graphs">graphs</u>! &#9787
+      </h1>
+    </a>
+    <h2>
+      <a href="/" class="headerlinks">home</a> |
+      <a href=../../about.html class="headerlinks">about</a> |
+      <a href=../../contact.html class="headerlinks">contact</a> |
+      <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
+    </h2>
+  </div>
+
+  <div class="backbutton">
+    <a href="/"> &lt; back</a>
+  </div>
+
+  <h1 class="pagetitle">The nycflights13 Data Sets (CRAN Package)</h1>
+  <div class="showall">
+    <img src="../graphs/airports-usa.webp" onclick="window.open(this.src, '_blank');">
+  </div>
+  </div>
+
+  <div class="main">
+    <h3> These graphs were partly made as part of the MA 415 course at Boston University!
+      Data is from one of the CRAN packages that comes with R,
+      <a href="https://cran.r-project.org/web/packages/nycflights13/index.html" target="_blank"> nycflights13</a>
+      (contains airline data on flights departing NYC in 2013).
+      Below is some stuff I did with these fun data sets! <br>
+    </h3>
+
+    <pre><code class="language-r">
+# load the package(s)
+library(nycflights13)
+library(tidyverse)
+library(ggplot2)
+  </code></pre>
+
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

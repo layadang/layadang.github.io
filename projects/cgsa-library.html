@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../images/profile.png">
+
+  <title>Laya Dang | Developer Portfolio</title>
+
+  <link rel="stylesheet" type="text/css" href="projects.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- <script src="index.js"></script> -->
+
+</head>
+
+<body>
+    <div class="navigation">
+        <div class="nav-image">
+          <a href="../"><img src="../images/typing-smiski-2.gif" alt="Avatar"></a>
+        </div>
+    
+       <div class="navbar">
+          <div class="navigation-links">
+            <a href="../#about">About</a>
+            <a href="../#projects">Projects</a>
+             <img src="../images/typing-smiski-2.gif" alt="Avatar">
+            <a href="../#experience"> Experience</a>
+            <a href="../#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <h1>Building the CGSA Library Database</h1>
+        <h3>Introduction</h3>
+        <p>The Center for Gender, Sexuality, and Activism (CGSA) at Boston University is an inclusive and safe space for queer students and students pursuing activism on campus. It's an entirely student-run area located in the basement of George Sherman Union (GSU), central to campus, and it is where my friends and I often spend our time together. This project meant a lot to me, as it felt as a meaningful way to "give back" to this wonderful space! I also collaborated with a close friend, Daniel, for this project.</p>
+        <h3>The Problem</h3>
+        <p>"The Library Room," as students call it, is much less popular than the WOMB (Wellness Of My Body) room and GARB (Gender Affirming Room for Belonging), but I think that's because it is not organized and frankly, quite dusty. There is so much history and knowledge, especially LGBTQ+ wellness guides, cultural histories, and feminist theory, that is important to visitors of the space. Having an official database will not only incentivize reading and learning, but also encourages people to keep the room tidy and the shelves well-organized.</p>
+        <img src="../images/project-images/cgsa-library.jpg">
+        <h3>The Solution</h3>
+        <p>The first challenge was to log every book, which comes with two parts: a) what existing database/API is there and what information do we want to log and b) how do we semi-automate this process, given the large number of books we have? </p>
+        <p>The few options for an API (that are free) is either Google Books or Open Library. It seems like Open Library (ran by Internet Archives) is more straight-forward to use, plus is not dependent on either of our accounts. As for semi-automating the process, I set up a barcode scanner that uses the webcam, confirm the book to add, and then append it to a CSV, as demo'd below:</p>
+        <video src="https://github.com/user-attachments/assets/7e543bb9-c99e-4887-9767-1f721ebc0265
+        "></video>
+        <p>This was my first time doing any project related to the webcam, and I did run into a few issues with the barcode not reading for certain books. I found that the best way to improve this was to use a grayscale to help with barcode detection.</p>
+        <p>For books that did not have barcodes, I set up a "manual add" system, where I used the API's search query to manually enter the ISBN / title, select the best match, and then reuse the confirm append function I had before.</p>
+        <p><b>To be continued... the next steps are importing the database into MongoDB and creating a front-end. Stay tuned!</b></p>
+    </div>
+
+</body>
+</html>
