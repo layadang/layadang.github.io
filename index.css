@@ -50,15 +50,13 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 
-  margin-top: 10px;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin: 1vh 2vw 0;
 
 }
 
 .maincontent img {
-  width: 550px;
-  height: auto;
+  width: 500px;
+  max-width: 100%;
 }
 
 .maincontent .block {
@@ -67,9 +65,7 @@ h2 {
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 50px;
-  margin-left: 20px;
-  
+  margin: 0 2vw 1vh;
 }
 
 .maincontent .block p {
