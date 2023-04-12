@@ -1,7 +1,9 @@
 /* content page styles: */
+
+/* lil navigation */
 .backbutton {
   margin-top: -10px;
-  margin-left: 50px;
+  margin-left: 10vw;
   font-size: 10pt;
   text-decoration: underline;
 }
@@ -10,21 +12,20 @@
   font-style: italic;
 }
 
+/* graph preview */
 .showall {
-  padding: 20px;
+  padding: 5vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .showall img {
-  height: 300px;
+  margin: 0 1vw 0;
+  height: 400px;
 }
 
-.codeimages img {
-  height: 500px;
-  padding: 20px;
-}
-
+/* top text */
 .main {
   display: flex;
   flex-direction: column;
@@ -34,10 +35,10 @@
   margin-top: 10px;
 }
 
-.main p {
+.main h3 {
   text-align: left;
-  margin-left: 100px;
-  margin-right: 100px;
+  font-weight: lighter;
+  margin: 0 10vw 50px;
 }
 
 .main a {
@@ -48,13 +49,31 @@
   font-style: italic;
 }
 
+/* code and graph */
+code {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  width: 50vw;
+}
 .codeimages {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
 }
 
-pre code {
-  padding-left: 0px;
-  border: 1px solid gray;
-  border-radius: 5px;
+.codeimages img {
+  width: 500px;
+  margin: 10px 50px 0px;
+}
+
+.codeimages code {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.codeimages p {
+  text-align: center;
 }
