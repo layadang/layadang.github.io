@@ -1,3 +1,5 @@
+/* homepage / header styles: */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 body {
@@ -22,7 +24,7 @@ a {
 }
 */
 
-.aboutlink:hover, .contactlink:hover, .githublink:hover {
+.headerlinks:hover {
   color: #3e752f;
   font-style: italic;
   text-decoration: underline;
@@ -31,6 +33,10 @@ a {
 .likes {
   font-weight: 500;
   margin-right: 4px;
+}
+
+h1 {
+  font-size: 25pt;
 }
 
 h2 {
@@ -45,11 +51,14 @@ h2 {
   justify-content: center;
   align-items: center;
 
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+
 }
 
 .maincontent img {
-  width: 700px;
+  width: 550px;
   height: auto;
 }
 
@@ -60,11 +69,19 @@ h2 {
   align-items: center;
 
   margin-bottom: 50px;
+  margin-left: 20px;
   
 }
 
 .maincontent .block p {
+  font-size: 25pt;
   margin-bottom: 1px;
+  text-align: center;
+}
+
+.maincontent .block p:hover {
+  font-weight: bold;
+  color: #3e752f;
 }
 
 /* about page styles: */
@@ -74,19 +91,21 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
-.meicon {
-  transform: scale(0.4);
+.aboutmain img {
+  width: 150px;
+  margin-right: 100px;
+  margin-bottom: 50px;
 }
 
 .aboutmetext {
   white-space: nowrap;
-  margin-left: -100px;
 }
 
 .emojis {
-  font-size: 30pt;
+  font-size: 25pt;
   letter-spacing: 10px;
 }
 

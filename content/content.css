@@ -1,0 +1,60 @@
+/* content page styles: */
+.backbutton {
+  margin-top: -10px;
+  margin-left: 50px;
+  font-size: 10pt;
+  text-decoration: underline;
+}
+
+.backbutton a:hover {
+  font-style: italic;
+}
+
+.showall {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.showall img {
+  height: 300px;
+}
+
+.codeimages img {
+  height: 500px;
+  padding: 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.main p {
+  text-align: left;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.main a {
+  text-decoration: underline;
+  color: #3e752f;
+}
+.main a:hover {
+  font-style: italic;
+}
+
+.codeimages {
+  display: flex;
+  align-items: center;
+}
+
+pre code {
+  padding-left: 0px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
