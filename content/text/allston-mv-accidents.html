@@ -11,7 +11,6 @@
 
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
 
-
   <title>Mapping Allston Motor Vechile Accidents</title>
 </head>
 
@@ -34,10 +33,12 @@
     <a href="/"> &lt; back</a>
   </div>
 
+  <h1 class="pagetitle">Mapping Allston Motor Vechicle Accidents</h1>
+
   <div class="showall">
-    <img src="../graphs/allston-map-2.png">
-    <img src="../graphs/allston-mv-accidents.png">
-    <img src="../graphs/tmap-allston-map.png">
+    <img src="../graphs/allston-map-2.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/allston-mv-accidents.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/tmap-allston-map.png" onclick="window.open(this.src, '_blank');">
 
   </div>
 
@@ -46,7 +47,8 @@
       Data is taken from
       <a href="https://data.boston.gov/" target="_blank"> Analyze Boston</a>
       (City of Boston's open data hub) and updated up to 2022.
-      Below is information on the code (all written in R) and the thought process. <br> </h3>
+      Below is information on the code (all written in R) and the thought process. <br>
+    </h3>
 
     <pre><code class="language-r">
 # packages used for this study (tmap and oldmaptools needs to be pre-installed)
@@ -79,7 +81,7 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
 
     <div class="codeimages">
       <div class="captionedcode">
-        <p> Starting with my dependable ggplot() function: </p>
+        <p> Starting with my dependable ggplot() function:</p>
         <pre><code class="language-r">
   ggplot() + 
     geom_sf(aes(fill = n), data = allston_accidents) + 
@@ -89,6 +91,18 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
       <img src="../graphs/allston-map-2.png">
     </div>
 
+    <div class="codeimages">
+      <div class="captionedcode">
+        <p> Experimenting with the tmap library: </p>
+        <pre><code class="language-r">
+  tm_shape(allston_accidents) + 
+    tm_polygons(col="n", title="MV Accidents") +
+  tm_shape(accidents) + 
+    tm_symbols(col="blue", border.col="blue", size=0.1)
+      </code></pre>
+      </div>
+      <img src="../graphs/allston-mv-accidents.png">
+    </div>
 
     <div class="codeimages">
       <div class="captionedcode">
@@ -112,19 +126,6 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
       </code></pre>
       </div>
       <img src="../graphs/tmap-allston-map.png">
-    </div>
-  
-    <div class="codeimages">
-      <div class="captionedcode">
-        <p> Experimenting with the tmap library: </p>
-        <pre><code class="language-r">
-  tm_shape(allston_accidents) + 
-    tm_polygons(col="n", title="MV Accidents") +
-  tm_shape(accidents) + 
-    tm_symbols(col="blue", border.col="blue", size=0.1)
-      </code></pre>
-      </div>
-      <img src="../graphs/allston-mv-accidents.png">
     </div>
 
   </div>
