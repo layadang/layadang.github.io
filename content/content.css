@@ -114,3 +114,10 @@ code {
     height: auto;
   }
 }
+
+/* for interactive map */
+
+.main iframe {
+  width: 90vw;
+  height: 750px;
+}
