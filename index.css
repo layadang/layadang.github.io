@@ -109,23 +109,31 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
+  height: 500px;
 }
 
 .aboutmain img {
   width: 150px;
   margin-right: 5vw;
-  margin-bottom: 50px;
 }
 
 .aboutmetext {
   width: 365px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
 }
 
-.emojis {
-  font-size: 25pt;
-  letter-spacing: 10px;
+.aboutmetext .language {
+  font-size: 10pt;
+  margin-left: 280px;
 }
+
+.aboutmetext .language a:hover {
+  font-style: italic;
+}
+
 
 /* contact page styles: */
 

@@ -8,10 +8,11 @@
   <title>about me!</title>
   <link rel="stylesheet" type="text/css" href="index.css">
   <link rel="icon" href="images/frog.png">
+  <script src="index.js"></script>
 
 </head>
 
-<body>
+<body onload="toggleLanguage('en')">
 
   <div class="header">
     <a href="/">
@@ -20,7 +21,7 @@
       </h1>
     </a>
     <h2>
-      <a href=about.html class="headerlinks">about</a> |
+      <a href=about.html class="headerlinks" style="text-decoration: underline;">about</a> |
       <a href=contact.html class="headerlinks">contact</a> |
       <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
     </h2>
@@ -29,8 +30,13 @@
   <div class="aboutmain">
     <img src=images/me.png title="my animal crossing character!">
     <div class="aboutmetext">
+      
+      <p class="language">
+        <a href="#" onclick="toggleLanguage('en')"> 🇺🇸 en</a> | 
+        <a href="#" onclick="toggleLanguage('vi')">🇻🇳 vi</a>
+      </p>
 
-      <p style="font-size: 15px;">
+      <p id="english" class="english" style="font-size: 15px;">
         hello! thanks for stopping by <3 <br> <br>
           i'm laya, an undergrad at boston university. if all 
           goes well, i will graduate with a double major
@@ -39,6 +45,19 @@
           together my love for data science, webdev, and
           ui/ux design. <br> <br>
           i hope u enjoy this space as much as i did building it!
+      </p>
+
+      <p id="vnmese" class="vnmese" style="font-size: 15px;">
+        chào bạn! cảm ơn bạn đã ghé qua trang web của mình <3 <br> <br>
+
+        mình tên là laya (tiếng viêt tên phương), sinh viên tại boston university. 
+        nếu mọi việc suôn sẻ, mình sẽ tốt nghiệp với bằng cử nhân trong ngành 
+        kinh tế và khoa học máy tính vào năm 2025. <br><br>
+        
+        trang web này được tạo hoàn toàn từ đầu, kết hợp 
+        kỹ năng khoa học dữ liệu, webdev, và thiết kế ui/ux của mình. <br> <br>
+        
+        mình hy vọng bạn thích website này như mình đã thích xây dựng nó!
       </p>
 
     </div>
