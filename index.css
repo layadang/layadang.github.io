@@ -4,6 +4,12 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: white;
+}
+
+::selection {
+  background-color: #1a8513;
+  color: white;
 }
 
 a {
@@ -17,12 +23,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-
-/* cool hover thing maybe?
-.laya:hover, .likes:hover, .graphs:hover {
-  color: #3e752f;
-}
-*/
 
 .headerlinks:hover {
   color: #1a8513;
@@ -127,7 +127,7 @@ h2 {
 
 .aboutmetext .language {
   font-size: 10pt;
-  margin-left: 280px;
+  align-self: flex-end;
 }
 
 .aboutmetext .language a:hover {
@@ -142,7 +142,6 @@ h2 {
   flex-direction: column;
   align-items: center;
   margin-top: 20vh;
-
   font-size: 1.8em;
 }
 

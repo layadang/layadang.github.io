@@ -23,6 +23,7 @@
       </h1>
     </a>
     <h2>
+      <a href=../../index.html class="headerlinks">home</a> |
       <a href=../../about.html class="headerlinks">about</a> |
       <a href=../../contact.html class="headerlinks">contact</a> |
       <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
@@ -36,9 +37,9 @@
   <h1 class="pagetitle">Mapping Allston Motor Vechicle Accidents</h1>
 
   <div class="showall">
-    <img src="../graphs/allston-map-2.png" onclick="window.open(this.src, '_blank');">
-    <img src="../graphs/allston-mv-accidents.png" onclick="window.open(this.src, '_blank');">
-    <img src="../graphs/tmap-allston-map.png" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/allston-map-2.webp" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/allston-mv-accidents.webp" onclick="window.open(this.src, '_blank');">
+    <img src="../graphs/tmap-allston-map.webp" onclick="window.open(this.src, '_blank');">
   </div>
 
   <div class="main">
@@ -87,7 +88,7 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
     geom_sf(color = "red", alpha = .3, data = accidents)
       </code></pre>
       </div>
-      <img src="../graphs/allston-map-2.png">
+      <img src="../graphs/allston-map-2.webp">
     </div>
 
     <div class="codeimages">
@@ -100,7 +101,7 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
     tm_symbols(col="blue", border.col="blue", size=0.1)
       </code></pre>
       </div>
-      <img src="../graphs/allston-mv-accidents.png">
+      <img src="../graphs/allston-mv-accidents.webp">
     </div>
 
     <div class="codeimages">
@@ -124,7 +125,7 @@ allston_accidents <- allston_subdistricts %>% st_join(accidents) %>% count(OBJEC
         
       </code></pre>
       </div>
-      <img src="../graphs/tmap-allston-map.png">
+      <img src="../graphs/tmap-allston-map.webp">
     </div>
 
   </div>

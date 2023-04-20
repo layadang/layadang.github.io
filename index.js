@@ -1,4 +1,3 @@
-
 function toggleLanguage(lang) {
     var english = document.getElementById("english");
     var vietnamese = document.getElementById("vnmese");
@@ -10,5 +9,4 @@ function toggleLanguage(lang) {
       english.style.display = "block";
       vietnamese.style.display = "none";
     } 
-
   }
