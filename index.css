@@ -55,8 +55,8 @@ h2 {
 }
 
 .maincontent img {
-  height: 400px;
-  max-height: 100%;
+  width: 450px;
+  max-width: 100%;
 }
 
 .maincontent p {
@@ -97,10 +97,9 @@ h2 {
     width: 450px;
   }
 
-  .contactmain {
-    font-size: 1em;
+  .contactmain p {
+    font-size: 15pt;
   }
-
 }
 
 /* about page styles: */
@@ -174,6 +173,22 @@ h2 {
   --bg-size: 400%;
   --color-one: hsl(283, 61%, 47%);
   --color-two: #feda75;
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 10s infinite linear;
+}
+
+.contactmain a:hover .github {
+  --bg-size: 400%;
+  --color-one: #0b0373;
+  --color-two: #9b9aab;
   background: linear-gradient(
                 90deg,
                 var(--color-one),
