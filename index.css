@@ -93,6 +93,14 @@ h2 {
     width: 90vw; 
     height: auto;
   }
+  .maincontent p {
+    width: 450px;
+  }
+
+  .contactmain {
+    font-size: 1em;
+  }
+
 }
 
 /* about page styles: */
