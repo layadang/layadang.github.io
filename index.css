@@ -25,7 +25,7 @@ a {
 */
 
 .headerlinks:hover {
-  color: #3e752f;
+  color: #1a8513;
   font-style: italic;
   text-decoration: underline;
 }
@@ -59,6 +59,10 @@ h2 {
   max-height: 100%;
 }
 
+.maincontent p {
+  width: 480px;
+}
+
 /* fun lil animation*/
 .maincontent .block,
 .maincontent .block img {
@@ -78,7 +82,7 @@ h2 {
 .maincontent .block:hover,
 .maincontent .block:hover img {
   font-weight: bold;
-  color: #3e752f;
+  color: #1a8513;
   transform: scale(1.05);
   transition: transform 0.2s ease;
 }
@@ -98,17 +102,17 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 15vh;
 }
 
 .aboutmain img {
   width: 150px;
-  margin-right: 100px;
+  margin-right: 5vw;
   margin-bottom: 50px;
 }
 
 .aboutmetext {
-  white-space: nowrap;
+  width: 365px;
 }
 
 .emojis {
@@ -120,6 +124,78 @@ h2 {
 
 .contactmain {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  margin-top: 20vh;
+
+  font-size: 1.8em;
+}
+
+.contactmain h2 {
+  text-align: center;
+  font-size: 0.7em;
+  margin-bottom: -8px;
+}
+
+.contactmain a:hover {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.contactmain a:hover b {
+  font-style: normal;
+}
+/* gradient animation tutorial from: https://web.dev/speedy-css-tip-animated-gradient-text/ */
+.contactmain a:hover .linkedin {
+  --bg-size: 400%;
+  --color-one: #0077B5;
+  --color-two: #72c8f6;
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+.contactmain a:hover .instagram {
+  --bg-size: 400%;
+  --color-one: hsl(283, 61%, 47%);
+  --color-two: #feda75;
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+.contactmain a:hover .mail {
+  --bg-size: 400%;
+  --color-one: #B23121;
+  --color-two: #fe9b92;
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
 }

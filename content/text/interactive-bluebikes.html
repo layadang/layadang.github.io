@@ -10,8 +10,6 @@
   <link rel="icon" href="../../images/frog.png">
 
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/agate.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <title>Interactive Map of BlueBike Stations in Boston Subdistricts</title>
 </head>
 
@@ -38,8 +36,15 @@
 
 
   <div class="main">
-    <h3> i discover INTERACTIVE MAPS on R?! pls be patient it'll take awhile to load + is a lil laggy (working to
-      hopefully make this better).
+    <h3> Data is from my favorite website, <a href="https://data.boston.gov/" target="_blank"> Analyze Boston</a> (City of Boston's open data hub). 
+      Created with the tmap library on "view" mode, which I later learned is just a repackaged version of leaflet, a javascript library. 
+      Exported using htmlwidgets, but edited source code to use CDN for better load time + had issues with hosting on GitHub pages. <br> <br>
+      Thought this was a good start for my first project creating an interactive map + layering data! I think next time I would 
+      either learn leaflet from scratch or use a different language (other than R), since the map is very laggy, uses a crazy amount of RAM, and 
+      just not at all user-friendly (or coder-friendly, for that matter). <br> <br>
+      I still think the final result is cool, though! The colors represent different districts and each blue dot is a BlueBike station (as of 2022).
+      Hover to see the name of each neighborhood. Really neat that the stations are spread down the main road to Hyde Park. 
+
     </h3>
     <br> <a href="../graphs/bluebikesboston.html" target="_blank"> View map in full screen! </a>
     <iframe src="../graphs/bluebikesboston.html" id="map"></iframe>
