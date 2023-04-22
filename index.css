@@ -1,79 +1,147 @@
-/* homepage / header styles: */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: white;
+:root {
+  --main1: #014c06;
+  --main2: #e6ffe3;
+  --main3: #ff7dda;
+  --main4: #ffe261;
 }
 
+/* homepage styles: */
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: var(--main1);
+
+  position: relative;
+  background: radial-gradient(ellipse at center, #ffe261b4 0%, #bfffadc2 50%, #ffade8c2 100%);
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+
+}
+  
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-blend-mode: overlay;
+  background-image: url(images/noise.png);
+  background-size: auto;
+  background-repeat: repeat;
+  z-index: -1;
+}
+  
 ::selection {
-  background-color: #1a8513;
+  background-color: var(--main3);
   color: white;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--main1);
 }
+/* ----------------------- */
 
+/* header styles: */
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  position: inherit;
+  z-index: 2;
+
+  height: 25vh;
 }
 
 .headerlinks:hover {
-  color: #1a8513;
-  font-style: italic;
+  color: var(--main3);
   text-decoration: underline;
 }
 
+.header h1 {
+  font-family: 'Calistoga', cursive;
+  font-size: 35pt;
+  color: var(--main1);
+}
+
+.header h1:hover {
+  color: var(--main3);
+}
+
+.header h1:hover .likes {
+  text-shadow: 2px 2px 0 var(--main3), 2px -2px 0 var(--main3), 
+  -2px 2px 0 var(--main3), -2px -2px 0 var(--main3), 2px 0px 0 var(--main3), 
+  0px 2px 0 var(--main3), -2px 0px 0 var(--main3), 0px -2px 0 var(--main3);  
+}
+
 .likes {
-  font-weight: 500;
-  margin-right: 4px;
+  color: #e6ffe3;
+  text-shadow: 2px 2px 0 var(--main1), 2px -2px 0 var(--main1), 
+    -2px 2px 0 var(--main1), -2px -2px 0 var(--main1), 2px 0px 0 var(--main1), 
+    0px 2px 0 var(--main1), -2px 0px 0 var(--main1), 0px -2px 0 var(--main1);
+  word-spacing: -0.1em;
 }
+/* ----------------------- */
 
-h1 {
-  font-size: 25pt;
-}
-
+/* content styles */
 h2 {
   margin-top: -10px;
   font-size: 15pt;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .maincontent {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  margin: 1vh 1vw 0;
-
+  flex-direction: row;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 500;
 }
 
 .maincontent img {
-  width: 450px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .maincontent p {
-  width: 480px;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
-/* fun lil animation*/
+.block {
+  width: 400px;
+  height: 100%;
+  border-radius: 100%;
+  background-color: transparent;
+}
+
+/* content hover animation */
 .maincontent .block,
 .maincontent .block img {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 1vw 0;
+  margin: 0 0 2vh;
+  line-height: 1.5;
   
-  font-size: 25pt;
-  margin-bottom: 0.5vh;
+  font-size: 20pt;
+  font-weight: 600;
   text-align: center;
   
   transition: transform 0.2s ease;
@@ -81,14 +149,21 @@ h2 {
 
 .maincontent .block:hover,
 .maincontent .block:hover img {
-  font-weight: bold;
-  color: #1a8513;
+  text-shadow: 2px 2px 0 var(--main3), 2px -2px 0 var(--main3), 
+    -2px 2px 0 var(--main3), -2px -2px 0 var(--main3), 2px 0px 0 var(--main3), 
+    0px 2px 0 var(--main3), -2px 0px 0 var(--main3), 0px -2px 0 var(--main3);  
   transform: scale(1.05);
+  color: white;
   transition: transform 0.2s ease;
+  font-weight: 600;
 }
+/* ----------------------- */
 
 /* for mobile image display */
 @media screen and (max-width: 570px) {
+  .header h1 {
+    font-size: 20pt;
+  }
   .maincontent .block img {
     width: 90vw; 
     height: auto;
@@ -100,9 +175,31 @@ h2 {
   .contactmain p {
     font-size: 15pt;
   }
+
+  body .contactmain .contacttext {
+    margin-top: -400px;
+  }
+
 }
+/* ----------------------- */
 
 /* about page styles: */
+
+.about {
+  display: flex;
+  justify-content: center;
+  height: 75vh;
+  width: 100vw;
+  position: fixed;
+}
+.about .blob {
+  position: fixed;
+  bottom: -40px;
+  width: 90vw;
+  z-index: -2;
+  user-select: none;
+
+}
 
 .aboutmain {
   display: flex;
@@ -118,11 +215,10 @@ h2 {
 }
 
 .aboutmetext {
-  width: 365px;
-  margin-top: 50px;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  align-self: start;
+  overflow-wrap: break-word;
 }
 
 .aboutmetext .language {
@@ -133,6 +229,7 @@ h2 {
 .aboutmetext .language a:hover {
   font-style: italic;
 }
+/* ----------------------- */
 
 
 /* contact page styles: */
@@ -140,15 +237,29 @@ h2 {
 .contactmain {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 20vh;
   font-size: 1.8em;
+
+  height: 75vh;
 }
 
-.contactmain h2 {
+.contactmain img {
+  position: fixed;
+  width: 90vw;
+  z-index: -1;
+}
+
+.contactmain .contacttext {
+  position: fixed;
+  margin-top: -50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   text-align: center;
-  font-size: 0.7em;
-  margin-bottom: -8px;
 }
 
 .contactmain a:hover {
@@ -159,73 +270,9 @@ h2 {
 .contactmain a:hover b {
   font-style: normal;
 }
-/* gradient animation tutorial from: https://web.dev/speedy-css-tip-animated-gradient-text/ */
-.contactmain a:hover .linkedin {
-  --bg-size: 400%;
-  --color-one: #0077B5;
-  --color-two: #72c8f6;
-  background: linear-gradient(
-                90deg,
-                var(--color-one),
-                var(--color-two),
-                var(--color-one)
-              ) 0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 8s infinite linear;
-}
 
-.contactmain a:hover .instagram {
-  --bg-size: 400%;
-  --color-one: hsl(283, 61%, 47%);
-  --color-two: #feda75;
-  background: linear-gradient(
-                90deg,
-                var(--color-one),
-                var(--color-two),
-                var(--color-one)
-              ) 0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 10s infinite linear;
+.contactmain a:hover .site {
+  color: var(--main2);
+  text-shadow: 0 0 10px var(--main4);
 }
-
-.contactmain a:hover .github {
-  --bg-size: 400%;
-  --color-one: #0b0373;
-  --color-two: #9b9aab;
-  background: linear-gradient(
-                90deg,
-                var(--color-one),
-                var(--color-two),
-                var(--color-one)
-              ) 0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 8s infinite linear;
-}
-
-.contactmain a:hover .mail {
-  --bg-size: 400%;
-  --color-one: #B23121;
-  --color-two: #fe9b92;
-  background: linear-gradient(
-                90deg,
-                var(--color-one),
-                var(--color-two),
-                var(--color-one)
-              ) 0 0 / var(--bg-size) 100%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: move-bg 8s infinite linear;
-}
-
-@keyframes move-bg {
-  to {
-    background-position: var(--bg-size) 0;
-  }
-}
+/* ----------------------- */

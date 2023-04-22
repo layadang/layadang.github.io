@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/index.css')}}">
   <link rel="stylesheet" type="text/css" href="../../index.css">
   <link rel="stylesheet" type="text/css" href="../content.css">
   <link rel="icon" href="../../images/frog.png">
@@ -19,13 +21,15 @@
   <div class="header">
     <a href="/">
       <h1>
-        ☆ <b class="laya">laya</b><i class="likes">likes</i><u class="graphs">graphs</u>! ☆
+        &#10032 <b class="laya" style="word-spacing: -0.2em;">laya </b>
+        <i class="likes">likes </i>
+        <u class="graphs">graphs</u>! &#9786
       </h1>
     </a>
     <h2>
-      <a href=../../index.html class="headerlinks">home</a> |
-      <a href=../../about.html class="headerlinks">about</a> |
-      <a href=../../contact.html class="headerlinks">contact</a> |
+      <a href=index.html class="headerlinks">home</a> |
+      <a href=about.html class="headerlinks">about</a> |
+      <a href=contact.html class="headerlinks">contact</a> |
       <a href="https://github.com/layadang" class="headerlinks" target="_blank">github</a>
     </h2>
   </div>
@@ -118,24 +122,23 @@
         ungroup()
     </code></pre>
 
-    <pre style="margin-top:-10px; border: 1px solid #1a8513; background-color: white;
-    "><code>
+    <pre style="margin-top:-10px;"><code>
         > spotify_stats
         # A tibble: 12 × 6
         month count mean_energy mean_danceability mean_tempo mean_valence
         <dbl> <int>       <dbl>             <dbl>      <dbl>        <dbl>
-      1     1   229       0.624             0.649       127.        0.523
-      2     2    93       0.556             0.620       120.        0.443
-      3     3   164       0.565             0.653       116.        0.462
-      4     4    95       0.574             0.638       120.        0.507
-      5     5    86       0.452             0.614       125.        0.388
-      6     6    17       0.599             0.584       122.        0.472
-      7     7   107       0.573             0.586       120.        0.470
-      8     8    13       0.495             0.596       104.        0.389
-      9     9    32       0.499             0.562       126.        0.313
-     10    10    60       0.444             0.578       115.        0.366
-     11    11    70       0.576             0.621       116.        0.506
-     12    12    40       0.585             0.631       120.        0.510
+           1   229       0.624             0.649       127.        0.523
+           2    93       0.556             0.620       120.        0.443
+           3   164       0.565             0.653       116.        0.462
+           4    95       0.574             0.638       120.        0.507
+           5    86       0.452             0.614       125.        0.388
+           6    17       0.599             0.584       122.        0.472
+           7   107       0.573             0.586       120.        0.470
+           8    13       0.495             0.596       104.        0.389
+           9    32       0.499             0.562       126.        0.313
+         10    60       0.444             0.578       115.        0.366
+         11    70       0.576             0.621       116.        0.506
+         12    40       0.585             0.631       120.        0.510
 
     </code></pre>
 

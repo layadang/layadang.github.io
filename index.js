@@ -10,3 +10,4 @@ function toggleLanguage(lang) {
       vietnamese.style.display = "none";
     } 
   }
+
