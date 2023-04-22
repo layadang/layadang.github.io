@@ -42,14 +42,14 @@
   </div>
 
   <div class="main">
-    <h3> Hot take but I love it when apps collect my data... not fun when they sell it for profit though.
+    <h3> I love it when apps collect my data!
         Anyway, a little backstory: I've had Spotify since 2021, and I've been told this is "psychopathic behavior," but
         I listen to my "Liked Songs" library on repeat rather than make playlists. Hence, the library currently has 1,000+
         songs that I just hit shuffle on. <br><br>
 
-        Despite it resulting in me skipping over every song anyway, it's a great database to analyze my emotions and growth
-        over the years! I extracted the data using <a href="https://spotipy.readthedocs.io/en/2.22.1/" target="_blank">spotipy</a>, 
-        a lightweight Python library for the Spotify Web API: 
+        This resulted in a huge database to analyze my emotions and growth over the years! 
+        I extracted the data using <a href="https://spotipy.readthedocs.io/en/2.22.1/" target="_blank">spotipy</a>, 
+        a Python library for the Spotify Web API: 
     </h3>
 
     <pre><code class="language-r">
@@ -97,14 +97,14 @@
         spotify <- read_csv("data/liked_songs.csv")
 
         spotify_clean <- spotify %>%
-        mutate(year=lubridate::year(date)) %>% 
-        mutate(month=lubridate::month(date, label=TRUE, abbr=TRUE)) %>% 
-        mutate(day=lubridate::day(date)) %>% 
-        mutate(time=substr(date, 12, 19)) %>% 
-        select(year, month, day, time, energy, danceability, tempo, valence, name, artist)
+            mutate(year=lubridate::year(date)) %>% 
+            mutate(month=lubridate::month(date, label=TRUE, abbr=TRUE)) %>% 
+            mutate(day=lubridate::day(date)) %>% 
+            mutate(time=substr(date, 12, 19)) %>% 
+            select(year, month, day, time, energy, danceability, tempo, valence, name, artist)
     </code></pre>
 
-    <h3> Here are the summary stats! No idea how it works, but I love that Spotify has these silly index
+    <h3> Here are the summary stats! No idea how it works, but I love that Spotify has these silly indexes
         for each songs. 
     </h3>
     <pre><code class="language-r">
@@ -118,7 +118,9 @@
         ungroup()
     </code></pre>
 
-    <pre><code>
+    <pre style="margin-top:-10px; border: 1px solid #1a8513; background-color: white;
+    "><code>
+        > spotify_stats
         # A tibble: 12 × 6
         month count mean_energy mean_danceability mean_tempo mean_valence
         <dbl> <int>       <dbl>             <dbl>      <dbl>        <dbl>
