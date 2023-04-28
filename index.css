@@ -35,7 +35,9 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-blend-mode: overlay;
+  background-image: url(images/noise.png);
+  background-size: auto;
+  background-repeat: repeat;
   z-index: -2;
 }
   
@@ -206,7 +208,6 @@ h2 {
   position: fixed;
   bottom: -40px;
   width: 90vw;
-  z-index: -2;
   user-select: none;
 
 }
@@ -257,7 +258,6 @@ h2 {
 .contactmain img {
   position: fixed;
   width: 90vw;
-  z-index: -1;
 }
 
 .contactmain .contacttext {
