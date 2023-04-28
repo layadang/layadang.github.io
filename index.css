@@ -24,6 +24,8 @@ body {
   background-size: cover;
   background-blend-mode: overlay;
   background-attachment: fixed;
+
+  z-index: 0;
 }
   
 body::before {
