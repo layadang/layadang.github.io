@@ -10,8 +10,6 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  content: "";
-  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -21,11 +19,13 @@ body {
   color: var(--main1);
 
   position: relative;
-  background: radial-gradient(ellipse at center, #ffe261b4 0%, #bfffadc2 50%, #ffade8c2 100%);
+  background: radial-gradient(ellipse at center,
+   #ffe261b4 0%, #bfffadc2 50%, #ffade8c2 100%);
   background-size: cover;
   background-blend-mode: overlay;
   background-attachment: fixed;
 
+  z-index: -1;
 }
   
 body::before {
