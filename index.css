@@ -160,9 +160,9 @@ h2 {
 /* ----------------------- */
 
 /* for mobile image display */
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
   .header h1 {
-    font-size: 20pt;
+    font-size: 25pt;
   }
   .maincontent .block img {
     width: 90vw; 
@@ -178,6 +178,19 @@ h2 {
 
   body .contactmain .contacttext {
     margin-top: -400px;
+  }
+
+  body .aboutmain img {
+    width: 100px;
+    margin-right: 10vw;
+  }
+
+  body .aboutmetext {
+    width: 50vw;
+  }
+
+  body .about {
+    margin-top: -20px;
   }
 
 }
