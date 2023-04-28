@@ -25,7 +25,7 @@ body {
   background-blend-mode: overlay;
   background-attachment: fixed;
 
-  z-index: -2;
+  z-index: -3;
 }
   
 body::before {
@@ -36,7 +36,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   background-blend-mode: overlay;
-
+  z-index: -2;
 }
   
 ::selection {
@@ -58,7 +58,7 @@ a {
   align-items: center;
   text-align: center;
   position: inherit;
-  z-index: 2;
+  z-index: 10;
 
   height: 25vh;
 }
