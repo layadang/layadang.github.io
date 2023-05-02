@@ -1,8 +1,8 @@
 :root {
   --main1: #014c06;
   --main2: #e6ffe3;
-  --main3: #ff7dda;
-  --main4: #ffe261;
+  --main3: #fb915f;
+  --main4: #fc63db;
 }
 
 /* homepage styles: */
@@ -20,7 +20,7 @@ body {
 
   position: relative;
   background: radial-gradient(ellipse at center,
-   #ffe261b4 0%, #bfffadc2 50%, #ffade8c2 100%);
+   #ffe261b4 0%, #bfffadc2 60%, #ff86ddc2 100%);
   background-size: cover;
   background-blend-mode: overlay;
   background-attachment: fixed;
