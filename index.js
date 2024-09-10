@@ -11,3 +11,15 @@ function toggleLanguage(lang) {
     } 
   }
 
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+const toolsContainer = document.querySelector('.tools');
+toolsContainer.innerHTML += toolsContainer.innerHTML; // Duplicate the tools
