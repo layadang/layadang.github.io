@@ -1,20 +1,20 @@
 :root {
-  --main1: #dee08a ;
+  /* --main1: #dee08a ; */
+  --main1: #ffffea ;
   --main2: #8c64d7;
   --main3: #FCFCFC;
-  --main4: #ee8001;
-  --main5: #43783D;
+  --main4: #c4ffc4;
+  /* --main5: #43783D; */
+  --main5: #35742e;
   --main6: #22053D;
 }
 
 ::-moz-selection { 
-  color: var(--main3);
-  background: var(--main2);
+  background: var(--main4);
 }
 
 ::selection {
-  color: var(--main3);
-  background: var(--main2);
+  background: var(--main4);
 }
 
 html, body {
@@ -77,7 +77,7 @@ a, a:active, a:visited, a:focus {
   width: 18vw;
   min-width: 200px;          
   height: 100vh;
-  font-size: 30pt;
+  font-size: 2.6vw;
 }
 
 .navigation-links {
@@ -92,7 +92,6 @@ a, a:active, a:visited, a:focus {
 
 .navigation-links a:hover {
   font-style: italic;
-  text-decoration: underline;
 }
 
 .main {
@@ -118,6 +117,10 @@ a, a:active, a:visited, a:focus {
   height: 90vh;
 }
 
+.contact {
+  height: 90vh;
+}
+
 
 .main h1{
   font-size: 50pt;
@@ -126,10 +129,11 @@ a, a:active, a:visited, a:focus {
 }
 
 .main h2, h3 {
-font-size: 20pt;
+font-size: 18pt;
 font-weight: 100;
-font-family: Arial;
-
+font-family: "Montserrat";
+font-optical-sizing: auto;
+font-weight: 300;
 }
 
 .main .about .text{
@@ -157,44 +161,44 @@ font-family: Arial;
   font-family: "Gluten", cursive;
   font-size: 30pt;
   font-weight: 500;
+  margin-bottom: 1vw;
 }
 
 .main .tools {
-  font-family: Arial;
-} 
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-weight: 300;} 
 
-@keyframes slide {
+/* @keyframes slide {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-100%);
   }
-}
+} */
 
-.slider {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-}
 
 .tools {
-  display: inline-block;
-  animation: 30s slide infinite linear;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 0;
+  width: 75vw;
+  margin: 0 auto;
 }
+
 
 .tool {
   white-space: nowrap;
-  width: 150px;
-  height: 50px;
-  margin-right: 75px;
-  font-size: 20pt;
+
+  margin: 15px;
+  font-size: 18pt;
 }
 
 .tool img {
-  vertical-align: middle;
-  width: 50px;
-  margin-right: 10px;
+  vertical-align: middle; 
+  width: 30px;
+  margin-right: 5px;
 }
 
 .quicklinks {
@@ -202,7 +206,7 @@ font-family: Arial;
 }
 
 .quicklinks img {
-  width: 50px;
+  width: 45px;
   margin-right: 20px;
   filter: grayscale(100%);
 }
@@ -213,28 +217,31 @@ font-family: Arial;
   gap: 20px;
 }
 .project {
-  width: 400px;
-  height: 400px;
+  width: 23vw;
+  height: 30vw;
 
   text-align: center;
-  border: solid 2pt #43783D;
-  border-radius: 25%;
+  background-color: var(--main1);
+  /* border: solid 2pt #43783D; */
+  border-radius: 10%;
 }
 
 .projects h1 {
   margin-bottom: 0.67em;
 }
 
-@media (max-width: 800px) {
-  .project {
-    flex: 0 0 45%;           /* Approximately 2 columns */
-  }
+#projects, #experience, #contact{
+  margin-top: 1vw;
 }
 
-/* 1 column for small screens */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .project-list {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
   .project {
-    flex: 0 0 100%;          /* Single column */
+    width: 90vw;
   }
 }
 
@@ -251,7 +258,7 @@ font-family: Arial;
     flex-direction: column;
   }
   .navigation {
-    height: 20vw;
+    height: 15vw;
     width: 100vw;
     position: fixed;
     z-index: 10;
@@ -272,7 +279,7 @@ font-family: Arial;
   }
   .navbar img {
     display: block;
-    width: 75px;
+    width: 80px;
     min-width: auto;
   }
 
@@ -282,11 +289,11 @@ font-family: Arial;
     align-items: center;
 
     width: 100%;
-    height: 20vw;
+    height: 15vw;
     border-right: none;
     border-bottom: solid 0.2vw #43783D;
 
-    font-size: 4vw;
+    /* font-size: 4vw; */
     margin-right: 0;
     padding-right: 0;
 
@@ -302,19 +309,25 @@ font-family: Arial;
     width: 100vw;
   }
 
+  .navigation-links a {
+    display: none;
+  }
+
   .main {
     width: 100vw;
-    padding-top: 22vw;
+    padding-top: 18vw;
   }
 
   #about, #projects, #experience, #contact {
-    scroll-margin-top: 22vw; 
+    scroll-margin-top: 20vw; 
     margin-left: 5vw;
+    margin-right: 5vw;
   }
 
   #projects, #experience, #contact{
     margin-top: 5vw;
   }
+  
   .main .about .text {
     gap: 0;
   }
@@ -331,8 +344,8 @@ font-family: Arial;
     font-size: 28pt;
   }
 
-  .main .about h2, .main .about h3  {
-    font-size: 18pt;
+  .main h2, h3 {
+    font-size: 15pt;
   }
 
   .tool {
