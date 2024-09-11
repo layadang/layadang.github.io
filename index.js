@@ -20,6 +20,3 @@ function toggleLanguage(lang) {
         });
     });
 });
-
-const toolsContainer = document.querySelector('.tools');
-toolsContainer.innerHTML += toolsContainer.innerHTML; // Duplicate the tools
