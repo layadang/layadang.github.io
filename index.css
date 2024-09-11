@@ -180,7 +180,7 @@ font-family: Arial;
 
 .tools {
   display: inline-block;
-  animation: 15s slide infinite linear;
+  animation: 30s slide infinite linear;
 }
 
 .tool {
@@ -318,10 +318,13 @@ font-family: Arial;
   .main .about .text {
     gap: 0;
   }
-
+  .main .about .text {
+    flex-direction: column;
+  }
   .main .about .text .me img {
-    width: 28vw;
-    height: 28vw;
+    width: 50vw;
+    height: 50vw;
+    margin-bottom: 5vw;
   }
 
   .main h1 {
