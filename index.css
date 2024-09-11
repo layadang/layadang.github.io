@@ -1,7 +1,7 @@
 :root {
   /* --main1: #dee08a ; */
   --main1: #ffffea ;
-  --main2: #8c64d7;
+  --main2: #fc9a19;
   --main3: #FCFCFC;
   --main4: #c4ffc4;
   /* --main5: #43783D; */
@@ -10,10 +10,12 @@
 }
 
 ::-moz-selection { 
+  color: var(--main6);
   background: var(--main4);
 }
 
 ::selection {
+  color: var(--main6);
   background: var(--main4);
 }
 
@@ -37,6 +39,9 @@ body {
 
 a, a:active, a:visited, a:focus {
   text-decoration:none;
+  display: inline-block; 
+  margin: 0;
+  padding: 0;
 }
 
 .navigation {
@@ -56,12 +61,16 @@ a, a:active, a:visited, a:focus {
   width: 18vw;
   min-width: 200px;          
 }
+.nav-image a{
+  width: 90%;
+  min-width: 200px;   
+
+}
 
 .nav-image img {
   border-radius: 50%;
-  width: 80%;
-  min-width: 200px;          
-
+  width: 90%;
+  min-width: 200px;   
 }
 
 .navbar{
@@ -102,7 +111,6 @@ a, a:active, a:visited, a:focus {
   min-width: 250px;          
   max-width: 300px;  */
   width:75vw;
-  height: 400%;
 }
 /* 
 .about {
@@ -117,11 +125,6 @@ a, a:active, a:visited, a:focus {
   height: 90vh;
 }
 
-.contact {
-  height: 90vh;
-}
-
-
 .main h1{
   font-size: 50pt;
   margin: 0;
@@ -134,6 +137,14 @@ font-weight: 100;
 font-family: "Montserrat";
 font-optical-sizing: auto;
 font-weight: 300;
+}
+
+.main p {
+  font-size: 14pt;
+  font-weight: 100;
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-weight: 300;
 }
 
 .main .about .text{
@@ -213,17 +224,24 @@ font-weight: 300;
 
 .project-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
   gap: 20px;
 }
 .project {
   width: 23vw;
+  min-width: 23vw;;
   height: 30vw;
 
   text-align: center;
   background-color: var(--main1);
   /* border: solid 2pt #43783D; */
   border-radius: 10%;
+}
+
+.project-end {
+  background-color: var(--main5);
+  color: var(--main3)
 }
 
 .projects h1 {
@@ -233,6 +251,30 @@ font-weight: 300;
 #projects, #experience, #contact{
   margin-top: 1vw;
 }
+
+.contact .content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-smiski {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.side-smiski h3 {
+  font-size: 1vw;
+  font-style: italic;
+  margin-right: -1vw;
+}
+
+.side-smiski  img {
+  bottom: 0;
+  right: 0;
+  width: 10vw;
+}
+
 
 @media (max-width: 600px) {
   .project-list {
@@ -246,7 +288,7 @@ font-weight: 300;
 }
 
 @media (min-width: 600px) {
-  .navbar img{
+  .navbar .navigation-links img{
     display: none;
   }
 }
