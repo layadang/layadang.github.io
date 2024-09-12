@@ -46,6 +46,9 @@ a, a:active, a:visited, a:focus {
 
 .navigation {
   width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* min-width: 250px;          
   max-width: 300px;  */
 }
@@ -53,13 +56,12 @@ a, a:active, a:visited, a:focus {
   position: fixed;
   z-index: 1;
   margin-top: 20px;
-  background-color: var(--main1);
-  /* border-right: solid 4pt #43783D; */
 
   display: flex;
   justify-content: center;
   width: 18vw;
-  min-width: 200px;          
+  min-width: 200px;         
+  max-width: 300px;     
 }
 .nav-image a{
   width: 90%;
@@ -229,17 +231,38 @@ font-weight: 300;
   gap: 20px;
 }
 .project {
-  width: 23vw;
-  min-width: 23vw;;
-  height: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 400px;;
+  min-height: 500px;
 
   text-align: center;
   background-color: var(--main1);
-  /* border: solid 2pt #43783D; */
   border-radius: 10%;
 }
 
+.project img {
+  flex: 1;
+  width: 100%;
+  max-height: 50%;
+  object-fit: cover; 
+  border-top-left-radius: 10%; 
+  border-top-right-radius: 10%; 
+}
+
+.project h2 {
+  font-weight: 500;
+}
+
+.project p {
+  width: 90%;
+}
+
 .project-end {
+  display: flex;
+  justify-content: center;
   background-color: var(--main5);
   color: var(--main3)
 }
@@ -261,10 +284,13 @@ font-weight: 300;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  bottom: 0;
+  right: 0;
+  margin-top: -12vw;
 }
 
 .side-smiski h3 {
-  font-size: 1vw;
+  font-size: 14pt;
   font-style: italic;
   margin-right: -1vw;
 }
@@ -273,10 +299,16 @@ font-weight: 300;
   bottom: 0;
   right: 0;
   width: 10vw;
+  min-width: 85px;
 }
 
+@media (max-width: 1330px) {
+  .navbar {
+    font-size: 25pt;
+  }
+}
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   .project-list {
     flex-direction: column;
     align-items: center;
@@ -287,14 +319,14 @@ font-weight: 300;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 850px) {
   .navbar .navigation-links img{
     display: none;
   }
 }
 
-/* For small mobile screens (below 600px) */
-@media (max-width: 600px) {
+/* For small mobile screens (below 850px) */
+@media (max-width: 850px) {
   body {
     display: flex;
     flex-direction: column;
@@ -321,7 +353,7 @@ font-weight: 300;
   }
   .navbar img {
     display: block;
-    width: 80px;
+    width: 15vw;
     min-width: auto;
   }
 
@@ -335,7 +367,6 @@ font-weight: 300;
     border-right: none;
     border-bottom: solid 0.2vw #43783D;
 
-    /* font-size: 4vw; */
     margin-right: 0;
     padding-right: 0;
 
@@ -356,6 +387,7 @@ font-weight: 300;
   }
 
   .main {
+    position: relative; 
     width: 100vw;
     padding-top: 18vw;
   }
