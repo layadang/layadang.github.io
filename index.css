@@ -19,6 +19,14 @@
   background: var(--main4);
 }
 
+.project-list::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar on Webkit browsers */
+}
+
+a {
+  color: var(--main6);
+}
+
 html, body {
   font-family: "Gluten", cursive;
   scroll-behavior: smooth;
@@ -231,7 +239,8 @@ font-weight: 300;
   overflow-x: scroll;
   gap: 20px;
   scroll-behavior: smooth;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .project {
@@ -252,13 +261,21 @@ font-weight: 300;
   transform: scale(1.05);
 }
 
-.project img {
-  flex: 1;
+.project .main { 
   width: 100%;
-  max-height: 50%;
+  height: auto;
+  max-height: 250px;
+  min-height: 250px;
   object-fit: cover; 
   border-top-left-radius: 5%; 
   border-top-right-radius: 5%; 
+}
+
+.project .icon img {
+  min-width: 50px;
+  max-width: 50px;
+  margin-right: -300px;
+  margin-bottom: 20px;
 }
 
 .project h2 {
@@ -273,7 +290,8 @@ font-weight: 300;
   display: flex;
   justify-content: center;
   background-color: var(--main5);
-  color: var(--main3)
+  color: var(--main3);
+  height: 100%;
 }
 
 /* .projects h1 {
@@ -327,14 +345,34 @@ font-weight: 300;
 }
 
 @media (max-width: 850px) {
-  .project-list {
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-  }
   .project {
-    width: 90vw;
+    padding-bottom: 20px;
+    min-width: 330px;
+    max-width: 60vw;
   }
+  .project-end {
+    min-height: 20vh;
+  }
+
+  .project .main {
+      width: 100%;
+      max-height: 200px;
+      height: auto;
+      object-fit: cover;
+      padding-top: 0;
+  }
+
+  .project .icon img {
+    min-width: 40px;
+    max-width: 40px;
+    margin-right: calc(-68vw + 100px);
+    margin-bottom: -10px;
+  }
+
+  .project p {
+    width: 100%;
+}
+
 }
 
 @media (min-width: 850px) {
@@ -430,6 +468,7 @@ font-weight: 300;
     width: 50vw;
     height: 50vw;
     margin-bottom: 5vw;
+    margin-right: 0;
   }
 
   .main h1 {
