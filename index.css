@@ -195,6 +195,7 @@ font-weight: 300;
 .tools {
   display: flex;
   flex-wrap: wrap; 
+  justify-content: center;
   gap: 0;
   width: 75vw;
   margin: 0 auto;
@@ -229,7 +230,10 @@ font-weight: 300;
   flex-wrap: nowrap;
   overflow-x: scroll;
   gap: 20px;
+  scroll-behavior: smooth;
+  padding: 20px;
 }
+
 .project {
   display: flex;
   flex-direction: column;
@@ -240,7 +244,12 @@ font-weight: 300;
 
   text-align: center;
   background-color: var(--main1);
-  border-radius: 10%;
+  border-radius: 5%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: scale(1.05);
 }
 
 .project img {
@@ -248,8 +257,8 @@ font-weight: 300;
   width: 100%;
   max-height: 50%;
   object-fit: cover; 
-  border-top-left-radius: 10%; 
-  border-top-right-radius: 10%; 
+  border-top-left-radius: 5%; 
+  border-top-right-radius: 5%; 
 }
 
 .project h2 {
@@ -267,17 +276,25 @@ font-weight: 300;
   color: var(--main3)
 }
 
-.projects h1 {
+/* .projects h1 {
   margin-bottom: 0.67em;
-}
+} */
 
 #projects, #experience, #contact{
   margin-top: 1vw;
 }
 
+.experience .box {
+  background-color: var(--main1);
+  width: 72vw; 
+  height: 60vh;
+  border-radius: 5%;
+}
+
 .contact .content {
   display: flex;
   justify-content: space-between;
+  z-index: 10;
 }
 
 .side-smiski {
@@ -287,6 +304,7 @@ font-weight: 300;
   bottom: 0;
   right: 0;
   margin-top: -12vw;
+  z-index: 0;
 }
 
 .side-smiski h3 {
