@@ -1,7 +1,7 @@
 :root {
   /* --main1: #dee08a ; */
   --main1: #ffffea ;
-  --main2: #fc9a19;
+  --main2: #8acd83;
   --main3: #FCFCFC;
   --main4: #c4ffc4;
   /* --main5: #43783D; */
@@ -131,9 +131,6 @@ a, a:active, a:visited, a:focus {
   height: 90vh;
 } */
 
-.experience {
-  height: 90vh;
-}
 
 .main h1{
   font-size: 50pt;
@@ -289,14 +286,26 @@ font-optical-sizing: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--main5);
-  color: var(--main3);
+  background-color: var(--main2);
+  color: var(--main5);
   height: 500px;
   min-width: 400px;
   border-radius: 5%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
+.project-end h2 {
+  top: 50%;
+  bottom: 50%;
+}
+
+.project-end img {
+  width: 150px;
+  position: absolute;
+  bottom: 0; 
+  z-index: 0;
+}
 /* .projects h1 {
   margin-bottom: 0.67em;
 } */
@@ -339,6 +348,85 @@ font-optical-sizing: auto;
   right: 0;
   width: 10vw;
   min-width: 85px;
+}
+
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--main5);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px; 
+  z-index: 5;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px 0;
+  position: relative;
+  width: 50%;
+  left: 50%;
+}
+
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  left: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  z-index: 0;
+}
+
+.timeline-item + .timeline-item {
+  margin-top: -30px; 
+}
+
+.timeline-date {
+  font-size: 14pt;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--main6);
+}
+
+.timeline-content {
+  padding: 20px;
+  background-color: var(--main1);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.timeline-content h3 {
+  font-size: 16pt;
+  color: var(--main5);
+  margin: 5px 0;
+}
+
+.timeline-content h4 {
+  font-size: 14pt;
+  font-weight: 300;
+  margin: 0;
+}
+
+.timeline-content p {
+  font-size: 12pt;
+  color: var(--main6);
+  margin-top: 10px;
+  line-height: 1.6;
 }
 
 @media (max-width: 1330px) {
@@ -486,4 +574,17 @@ font-optical-sizing: auto;
     font-size: 12pt;
   }
 
+  .timeline-item {
+    left: 6vw;
+    width: 90%;
+  }
+  .timeline-item:nth-child(even) {
+    left: 6vw;
+  }
+  .timeline-container::before {
+    left: 5vw;
+  }
+  .timeline-container {
+    margin-top: 40px;
+  }
 }
