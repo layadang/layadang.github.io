@@ -43,6 +43,7 @@ body {
   width: 100vw;
   height: 100vh;
   color: var(--main6);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 a, a:active, a:visited, a:focus {
@@ -599,5 +600,10 @@ font-optical-sizing: auto;
   .tool {
     font-size: 12pt;
   }
-
+  .contact .content h3 {
+    font-size: 12pt;
+  } 
+  .side-smiski {
+    margin-top: 0;
+  }
 }
