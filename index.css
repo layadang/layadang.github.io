@@ -563,6 +563,7 @@ font-optical-sizing: auto;
     position: relative; 
     width: 100vw;
     padding-top: 18vw;
+    margin-top: 15vw;
   }
 
   #about, #projects, #experience, #contact {
